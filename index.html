@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diana Aubakirova — CV</title>
-<meta name="description" content="CV of Diana Aubakirova, student at Eurasian National University.">
+<meta name="description" content="CV of Diana Aubakirova, fourth-year Scientific Geography student at L.N. Gumilyov Eurasian National University.">
+<meta name="theme-color" content="#7cc0f4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
@@ -35,6 +37,7 @@
   a { color: var(--blue); }
   button { font: inherit; color: inherit; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .print-only { display: none; }
 
   /* Hero: open sky */
   .hero {
@@ -74,10 +77,11 @@
   /* Sticky nav with scroll-spy */
   nav {
     position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
     background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
   }
-  nav ul { list-style: none; margin: 0 auto; padding: 0.4rem clamp(1rem, 6vw, 5rem); max-width: 62rem + 10rem; display: flex; gap: 0.25rem; overflow-x: auto; }
+  nav ul { list-style: none; margin: 0 auto; padding: 0.4rem clamp(1rem, 6vw, 5rem); max-width: 72rem; display: flex; gap: 0.25rem; overflow-x: auto; }
   nav a { display: block; padding: 0.55rem 0.9rem; border-radius: 999px; text-decoration: none; color: var(--muted); font-weight: 500; white-space: nowrap; }
   nav a:hover { color: var(--ink); }
   nav a.active { background: var(--blue); color: #fff; }
@@ -88,13 +92,13 @@
   h2 { font: 800 2rem/1.15 var(--display); letter-spacing: -0.02em; margin: 0 0 1.4rem; }
   h3 { font: 700 1.05rem var(--body); margin: 0; }
   p { margin: 0 0 1rem; max-width: 66ch; }
-  .lead { font: 500 1.45rem/1.5 var(--display); max-width: 34ch; }
 
   /* Timeline */
   .timeline { border-left: 3px solid var(--blue-soft); margin-left: 0.5rem; padding-left: 1.75rem; }
   .entry { position: relative; margin-bottom: 1.9rem; }
   .entry::before { content: ""; position: absolute; left: calc(-1.75rem - 9px); top: 0.4rem; width: 15px; height: 15px; border-radius: 50%; background: var(--sun); border: 3px solid var(--bg); }
   .entry h3 { font: 700 1.25rem var(--display); }
+  .entry .tags { margin-top: 0.5rem; }
   .meta { color: var(--muted); margin: 0.1rem 0 0.5rem; }
   .badge { display: inline-block; background: var(--blue-soft); color: var(--blue); font-weight: 700; font-size: 0.85rem; padding: 0.1rem 0.7rem; border-radius: 999px; }
 
@@ -134,9 +138,11 @@
   }
   @media print {
     :root { --bg: #fff; --ink: #000; --muted: #333; --rule: #bbb; --blue: #1a4f9c; --blue-soft: #e8f0fa; --sky-top: #fff; --sky-bottom: #fff; }
-    .clouds, nav, .chip.copy, .print-hide { display: none !important; }
+    .clouds, nav, .print-hide, .pick, .readout { display: none !important; }
+    .print-only { display: block !important; }
     .hero { padding: 0 0 1rem; }
     .name { color: #000; }
+    .chip { background: none; box-shadow: none; padding: 0; color: #000; }
     .acc .panel { display: block !important; } .acc > button::after { content: ""; }
     .bar i { width: var(--w) !important; }
     body { font-size: 10.5pt; } section { break-inside: avoid; margin-bottom: 1.5rem; }
@@ -153,11 +159,13 @@
   </div>
   <div class="hero-inner">
     <!-- To add your photo: save it as photo.jpg next to this file. -->
-    <div class="photo"><img src="photo.jpg" alt="Portrait of Diana Aubakirova" onerror="this.remove();this.parentNode.textContent='DA'"></div>
+    <div class="photo"><img src="photo.jpg" alt="Portrait of Diana Aubakirova" onerror="this.parentNode.textContent='DA'"></div>
     <div>
       <h1 class="name">Diana<br>Aubakirova</h1>
       <div class="chips">
-        <button class="chip copy" data-copy="aubakirdiana06@gmail.com">✉ aubakirdiana06@gmail.com</button>
+        <a class="chip" href="mailto:aubakirdiana06@gmail.com">✉ aubakirdiana06@gmail.com</a>
+        <button class="chip print-hide" data-copy="aubakirdiana06@gmail.com">Copy email</button>
+        <button class="chip primary print-hide" onclick="window.print()">Save as PDF</button>
       </div>
     </div>
   </div>
@@ -188,7 +196,7 @@
         <p class="meta">Astana · graduated 2023</p>
       </div>
       <div class="entry">
-        <h3>Eurasian National University</h3>
+        <h3>L.N. Gumilyov Eurasian National University</h3>
         <p class="meta">Astana · 2023 – 2027</p>
         <p>Scientific Geography · <span class="badge">Current student</span></p>
       </div>
@@ -207,7 +215,7 @@
         <h3>Young entrepreneur, online clothing shop</h3>
         <p class="meta">Founder · Instagram</p>
         <p>Opened and ran my own online shop selling clothing. I sourced products directly from Chinese platforms and handled the buying side myself.</p>
-        <div class="tags" style="margin-top:.5rem"><span>Pinduoduo</span><span>1688</span><span>Taobao</span><span>WeChat</span></div>
+        <div class="tags"><span>Pinduoduo</span><span>1688</span><span>Taobao</span><span>WeChat</span></div>
       </div>
     </div>
   </section>
@@ -249,6 +257,7 @@
       <button aria-pressed="false" data-t="Versatile mindset" data-d="I combine analytical work with attention to how results are presented, so they are both rigorous and clear.">Versatile mindset</button>
     </div>
     <div class="readout" aria-live="polite"><h3 id="r-t">Analytical thinking</h3><p id="r-d">I approach large datasets by dividing them into smaller parts and examining how those parts relate to each other.</p></div>
+    <div class="print-only" id="soft-print"></div>
   </section>
 
 </main>
@@ -270,8 +279,9 @@
     });
   });
 
-  // Soft skills picker
+  // Soft skills picker (+ full list for printing)
   var picks = document.querySelectorAll(".pick button");
+  var printBox = document.getElementById("soft-print");
   picks.forEach(function (b) {
     b.addEventListener("click", function () {
       picks.forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
@@ -279,6 +289,12 @@
       document.getElementById("r-t").textContent = b.dataset.t;
       document.getElementById("r-d").textContent = b.dataset.d;
     });
+    var p = document.createElement("p");
+    var strong = document.createElement("b");
+    strong.textContent = b.dataset.t + ". ";
+    p.appendChild(strong);
+    p.appendChild(document.createTextNode(b.dataset.d));
+    printBox.appendChild(p);
   });
 
   // Language bars fill when visible
@@ -303,6 +319,12 @@
     }, { rootMargin: "-35% 0px -55% 0px" });
     document.querySelectorAll("main section").forEach(function (s) { so.observe(s); });
   }
+  // Highlight the last item when the page is scrolled to the bottom
+  window.addEventListener("scroll", function () {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      links.forEach(function (l, i) { l.classList.toggle("active", i === links.length - 1); });
+    }
+  }, { passive: true });
 </script>
 </body>
 </html>
